@@ -1,0 +1,45 @@
+<header>
+  <div class="container-xx"><img src="assets/img/banner.png" style="height: 100%; width: 100%;"></div>
+  <nav class="navbar navbar-expand-lg navbar-light backblueone">
+    <div class="container-fluid">
+      <a class="nav-link text-white text-navar">Inicio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              ¿Quiénes somos?
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item">Misión</a></li>
+              <li><a class="dropdown-item">Visión</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departamentos</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item">Educación continúa</a></li>
+              <li><a class="dropdown-item">Biblioteca</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tramites y servicios</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/login']" [state]="{id:1}">Control escolar</a></li>
+              <li><a class="dropdown-item">Intranet</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="buscar..." aria-label="Search">
+          <button class="btn btn-outline-search" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header>

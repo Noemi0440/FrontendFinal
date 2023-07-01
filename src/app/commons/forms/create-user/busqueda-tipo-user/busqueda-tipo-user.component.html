@@ -1,0 +1,65 @@
+<div class="container text-center">
+  <h1 class="mb-4 text-center">Selecciona la opción que deceas realizar {{title}}</h1>
+  <h4 class="mb-4 text-center">
+    Los criterios para realizar una busqueda son los aiguientes:
+  </h4>
+  <h5 class="mb-4 text-center">
+    Nombre, Apellido Paterno, Apellido Materno ó Curp
+  </h5>
+  <div class="row justify-content-center">
+    <form action="" class="row col-sm-6">
+      <div class="col-sm-7">
+        <input class="form-control" type="search" placeholder="search" aria-label="search" name="search" [(ngModel)]="search"/>
+      </div>
+    </form>
+    <div class="row col-sm-3">
+      <div class="col-sm-11" *ngIf="value == 1">
+        <input type="button" class="form-control btn btn-outline-primary" id="alta" name="alta" value="Alta" [routerLink]="['/estudiante']" [state]="{flag:true}"/>
+      </div>
+      <div class="col-sm-11" *ngIf="value == 2">
+        <input type="button" class="form-control btn btn-outline-primary" id="alta" name="alta" value="Alta" [routerLink]="['/profesor']" [state]="{flag:true}"/>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container text-center mt-2">
+  <div class="row justify-content-center">
+    <h6>Listado de usuarios</h6>
+    <table class="border">
+      <thead>
+        <tr>
+          <th>Nombre:</th>
+          <th>Apellido paterno:</th>
+          <th>Apellido materno:</th>
+          <th>Curp:</th>
+          <th>Actualizar:</th>
+          <div class="col-sm-11" *ngIf="value == 1">
+            <th>Alta de padres:</th>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.mothersLastName}}</td>
+          <td>{{user.curp}}</td>
+          <td>
+            <div class="col-sm-11" *ngIf="value == 1">
+              <button type="button" class="btn btn-success" [routerLink]="['/estudiante']" [state]="{flag:false, id:user.id}">Actualizar</button>
+            </div>
+            <div class="col-sm-11" *ngIf="value == 2">
+              <button type="button" class="btn btn-success" [routerLink]="['/profesor']" [state]="{flag:false, id:user.id}">Actualizar</button>
+            </div>
+        </td>
+        <td>
+          <div class="col-sm-11" *ngIf="value == 1">
+            <button type="button" class="btn btn-success" [routerLink]="['/padres']" [state]="{flag:false, id:user.id}">Alta</button>
+          </div>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-search-data [search]="search" (listadoUsuarios)="listadoUsuarios($event)" [value]="value"></app-search-data>

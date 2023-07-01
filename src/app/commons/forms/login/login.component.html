@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <h1 class="mb-4 text-center">Bienvenido a el sistema de {{title}}</h1>
+      <h2 class="text-center">Porfavor ingresa el usuario y la contraseña</h2>
+      <form>
+        <div class="col-12">
+          <label for="user" class="form-label">Usuario:</label>
+          <input type="text" class="form-control" id="user" name="user" />
+        </div>
+        <div class="col-12 mt-2">
+          <label for="password" class="form-label">Password:</label>
+          <input type="password" class="form-control" id="password" name="password" />
+        </div>
+        <div class="col-12 mt-2">
+          <div class="row justify-content-center">
+            <div class="col-md-6 mt-4">
+              <button type="submit" class="btn btn-dark w-100 fw-bold" [routerLink]="['/headerControl']">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

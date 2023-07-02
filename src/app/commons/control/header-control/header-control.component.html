@@ -2,12 +2,17 @@
   <div class="container-xx"><img src="assets/img/banner.png" style="height: 100%; width: 100%;"></div>
   <nav class="navbar navbar-expand-lg navbar-light backblueone">
     <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Alumnos</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" [routerLink]="['/busquedaUser']" [state]="{id:1}">Inscripción</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/busquedaUser']" [state]="{id:1}">Alta</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -16,6 +21,25 @@
               <li><a class="dropdown-item" [routerLink]="['/busquedaUser']" [state]="{id:2}">Alta</a></li>
             </ul>
           </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Respaldo de BD</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/respaldoBD']">Generar respaldo</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Inscripción</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/']">Generar inscripciones de un alumno</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reportes</a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" [routerLink]="['/']">Generar reporte</a></li>
+            </ul>
+          </li>
+          
         </ul>
       </div>
     </div>

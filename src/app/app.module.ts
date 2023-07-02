@@ -23,8 +23,8 @@ import { LoginComponent } from './commons/forms/login/login.component';
 import { HomeComponent } from './commons/home/home.component';
 import { HeaderControlComponent } from './commons/control/header-control/header-control.component';
 import { ListStudentBySearchService } from './services/catalog/list-student-by-search.service';
-import { InsertStudentServiceService } from './services/main/insert-student-service.service';
 import { ListPersonalDataService } from './services/catalog/list-personal-data.service';
+import { InsertUserService } from './services/main/insert-user.service';
 
 const routes: Routes = [
   { path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -34,7 +34,8 @@ const routes: Routes = [
   { path: 'busquedaUser', component: BusquedaTipoUserComponent},
   { path: 'estudiante', component:EstudianteComponent},
   { path: 'profesor', component:ProfesorComponent},
-  { path: 'padres', component: PadresComponent}
+  { path: 'padres', component: PadresComponent},
+  { path: 'respaldoBD', component: BackupDBComponent}
 
 ];
 
@@ -68,8 +69,8 @@ const routes: Routes = [
     RolesService,
     ListTeacherBySearchService,
     ListStudentBySearchService,
-    InsertStudentServiceService,
-    ListPersonalDataService
+    ListPersonalDataService,
+    InsertUserService
   ],
   bootstrap: [AppComponent],
 })

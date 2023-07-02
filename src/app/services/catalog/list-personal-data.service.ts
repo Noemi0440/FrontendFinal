@@ -20,12 +20,7 @@ export class ListPersonalDataService {
   constructor(private http: HttpClient) { }
 
   getPersonalData(valueLong : ValueLong): Observable<any> {
-    return this.http.post(this.urlEndPoint, JSON.stringify(valueLong), {headers: this.headers}).pipe(
-      tap(()=>{
-        this._refresh$.next();
-      }
-      )
-    );
+    return this.http.post(this.urlEndPoint, JSON.stringify(valueLong), {headers: this.headers});
 
   }
 

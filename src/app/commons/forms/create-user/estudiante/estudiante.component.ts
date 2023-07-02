@@ -5,6 +5,9 @@ import * as intlTelInput from 'intl-tel-input';
 import { ListPersonalDataService } from 'src/app/services/catalog/list-personal-data.service';
 import { ValueLong } from 'src/app/dto/value-long';
 import Swal from 'sweetalert2';
+import { InsertUserService } from 'src/app/services/main/insert-user.service';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -28,7 +31,7 @@ export class EstudianteComponent implements OnInit{
   valueLong:ValueLong;
 
 
-  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService) {
+  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService, private insertUserService:InsertUserService, private router: Router) {
   }
 
 
@@ -54,20 +57,27 @@ export class EstudianteComponent implements OnInit{
 
     this.personalDataDTO.roleId = this.roleId;
 
+    this.personalDataDTO.email = this.email; 
+
     console.log(this.personalDataDTO);
+    //debugger;
+
     Swal.fire({
-      title: 'Do you want to save the changes?',
+      title: 'Deseas guardar los datos del usuario',
       showDenyButton: true,
       showCancelButton: true,
-      confirmButtonText: 'Save',
-      denyButtonText: `Don't save`,
+      confirmButtonText: 'Guardar',
+      denyButtonText: `No guardar`,
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Swal.fire('Saved!', '', 'success')
-        console.log('si voy a guardar el usuario');
+        Swal.fire('Guardado!', '', 'success')
+        this.insertUserService.getPersonaData(this.personalDataDTO).subscribe((response)=>{
+          console.log(response);
+        });
+        this.router.navigate(['/busquedaUser'],{ state: { id: '1' } });
       } else if (result.isDenied) {
-        Swal.fire('Changes are not saved', '', 'info')
+        Swal.fire('Los cambios no serán guardados', '', 'info')
       }
     })
   }
@@ -84,6 +94,7 @@ export class EstudianteComponent implements OnInit{
 
 
       this.listPersonalDataService.getPersonalData(this.valueLong).subscribe((response) => {
+        
         this.name = response.name;
         this.birthday = response.birthday;
         this.lastName = response.lastName;
@@ -92,6 +103,7 @@ export class EstudianteComponent implements OnInit{
         this.phoneHome = response.phone;
         this.email = response.email;
         this.curp = response.curp;
+
       });
     }
 
@@ -110,14 +122,14 @@ export class EstudianteComponent implements OnInit{
       intlTelInput(inputElement,{
         initialCountry: 'mx',
         separateDialCode: true,
-        //utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
       });
     }
     if(inputElement2){
       intlTelInput(inputElement2,{
         initialCountry: 'mx',
         separateDialCode: true,
-        //utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
       });
     }
     var date = new Date();

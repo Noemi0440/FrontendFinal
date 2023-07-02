@@ -93,14 +93,14 @@ export class ProfesorComponent implements OnInit{
       intlTelInput(inputElement,{
         initialCountry: 'mx',
         separateDialCode: true,
-        //utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
       });
     }
     if(inputElement2){
       intlTelInput(inputElement2,{
         initialCountry: 'mx',
         separateDialCode: true,
-        //utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js'
       });
     }
     var date = new Date();

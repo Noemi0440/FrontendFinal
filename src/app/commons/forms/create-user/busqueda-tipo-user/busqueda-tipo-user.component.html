@@ -34,7 +34,7 @@
           <th>Curp:</th>
           <th>Actualizar:</th>
           <div class="col-sm-11" *ngIf="value == 1">
-            <th>Alta de padres:</th>
+            <th>Información adicional:</th>
           </div>
         </tr>
       </thead>
@@ -54,7 +54,7 @@
         </td>
         <td>
           <div class="col-sm-11" *ngIf="value == 1">
-            <button type="button" class="btn btn-success" [routerLink]="['/padres']" [state]="{flag:false, id:user.id}">Alta</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/extraInfoEsdutiante']" [state]="{flag:false, id:user.id}">Adicional</button>
           </div>
         </td>
         </tr>

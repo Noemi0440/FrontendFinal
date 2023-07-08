@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <h1 class="mb-4 mt-2 text-center">Información adicional del estudiante</h1>
+            <mat-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel>Información del padre o tutor</ng-template>
+                        <div layout-margin>
+                            <div layout="row">
+                                <div flex>
+                                    <mat-form-field>
+                                        <mat-label>Nombre</mat-label>
+                                        <input matInput formControlName="name" (ngModelChange)="nameChange($event)"
+                                            [value]="name">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>Apellido paterno</mat-label>
+                                        <input matInput formControlName="lastName"
+                                            (ngModelChange)="lastNameChange($event)" [value]="lastName">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>Apellido materno</mat-label>
+                                        <input matInput formControlName="motherLastName"
+                                            (ngModelChange)="motherLastNameChange($event)" [value]="motherLastName">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div layout-margin>
+                            <div layout="row">
+                                <div flex>
+                                    <mat-form-field>
+                                        <mat-label>Telefono celular</mat-label>
+                                        <input matInput formControlName="phone" name="phone"
+                                            (ngModelChange)="phoneChange($event)" [value]="phone">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <mat-label>Telefono hogar</mat-label>
+                                        <input matInput formControlName="phoneHome" name="phoneHome"
+                                            (ngModelChange)="phoneHomeChange($event)" [value]="phoneHome">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-button matStepperNext (click)="clickPrimerStep()">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" label="Dirección">
+                    <form [formGroup]="secondFormGroup">
+                        <mat-form-field>
+                            <mat-label>Codigo postal</mat-label>
+                                <input matInput formControlName="cp" (ngModelChange)="cpChange($event)" [value]="cp">
+                        </mat-form-field> 
+                        <mat-form-field>
+                            <mat-label>Estado</mat-label>
+                            <input matInput formControlName="estado" placeholder="50110" 
+                                [(ngModel)]="estado" value={{estado}} required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Municipio</mat-label>
+                            <input matInput formControlName="municipio" placeholder="50110"
+                                [(ngModel)]="municipio" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Colonia</mat-label>
+                            <select formControlName="colonia" matNativeControl required (change)="cpChange(cp)">
+                                <option [value]="null" disabled>Escoge una colonia</option>
+                                <option *ngFor="let direccion of direcciones" [value]="direccion.id"> 
+                                    {{direccion.colonia}}
+                                </option>
+                            </select>
+                          </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Finalizar</ng-template>
+                    <p>Estas terminado</p>
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()">Reset</button>
+                    </div>
+                </mat-step>
+            </mat-stepper>
+        </div>
+    </div>
+</div>

@@ -25,6 +25,16 @@ import { HeaderControlComponent } from './commons/control/header-control/header-
 import { ListStudentBySearchService } from './services/catalog/list-student-by-search.service';
 import { ListPersonalDataService } from './services/catalog/list-personal-data.service';
 import { InsertUserService } from './services/main/insert-user.service';
+import { ExtraInfoStudentComponent } from './commons/forms/create-user/extra-info-student/extra-info-student.component';
+import { FindByCPService } from './services/catalog/find-by-cp.service';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatInputModule } from '@angular/material/input';
+
 
 const routes: Routes = [
   { path: '', redirectTo:'/home', pathMatch: 'full'},
@@ -35,7 +45,9 @@ const routes: Routes = [
   { path: 'estudiante', component:EstudianteComponent},
   { path: 'profesor', component:ProfesorComponent},
   { path: 'padres', component: PadresComponent},
-  { path: 'respaldoBD', component: BackupDBComponent}
+  { path: 'respaldoBD', component: BackupDBComponent},
+  { path: 'extraInfoEsdutiante', component: ExtraInfoStudentComponent}
+
 
 ];
 
@@ -54,6 +66,7 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     HeaderControlComponent,
+    ExtraInfoStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +75,13 @@ const routes: Routes = [
     ReactiveFormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    MatSelectModule,
+    MatOptionModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    CommonModule,
+    MatStepperModule,
+    MatInputModule
   ],
   providers: [
     CategoriesService,
@@ -70,7 +90,8 @@ const routes: Routes = [
     ListTeacherBySearchService,
     ListStudentBySearchService,
     ListPersonalDataService,
-    InsertUserService
+    InsertUserService,
+    FindByCPService
   ],
   bootstrap: [AppComponent],
 })

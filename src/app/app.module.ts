@@ -40,6 +40,8 @@ import { CreatePeriodComponent } from './commons/forms/create-period/create-peri
 import { FormPeriodComponent } from './commons/forms/form-period/form-period.component';
 import { FindPeriodsService } from './services/catalog/find-periods.service';
 import { CreateOrUpdatePeriodService } from './services/main/create-or-update-period.service';
+import { InscripcionComponent } from './commons/forms/inscripcion/inscripcion.component';
+import { InscripcionFormComponent } from './commons/forms/inscripcion-form/inscripcion-form.component';
 
 
 const routes: Routes = [
@@ -55,7 +57,8 @@ const routes: Routes = [
   { path: 'extraInfoEsdutiante', component: ExtraInfoStudentComponent},
   { path: 'direccion', component: AddressComponent},
   { path: 'periodo', component: CreatePeriodComponent},
-  { path: 'periodoForm', component: FormPeriodComponent}
+  { path: 'periodoForm', component: FormPeriodComponent},
+  { path: 'inscripcion', component: InscripcionComponent}
 
 
 
@@ -79,7 +82,9 @@ const routes: Routes = [
     ExtraInfoStudentComponent,
     AddressComponent,
     CreatePeriodComponent,
-    FormPeriodComponent
+    FormPeriodComponent,
+    InscripcionComponent,
+    InscripcionFormComponent
   ],
   imports: [
     BrowserModule,

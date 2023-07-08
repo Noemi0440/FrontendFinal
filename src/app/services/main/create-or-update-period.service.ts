@@ -8,7 +8,7 @@ import { PeriodDTO } from 'src/app/dto/period-dto';
 })
 export class CreateOrUpdatePeriodService {
 
-  private urlEndPoint: string = 'http://localhost:5002/reinscripcion/main/createPeriodo';
+  private urlEndPoint: string = 'http://localhost:5002/reinscripcion/control/createPeriodo';
 
   private headers = new HttpHeaders().set(
     'Content-Type',

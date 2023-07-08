@@ -4,8 +4,8 @@ import { RolesService } from 'src/app/services/catalog/roles.service';
 import * as intlTelInput from 'intl-tel-input';
 import { ListPersonalDataService } from 'src/app/services/catalog/list-personal-data.service';
 import { ValueLong } from 'src/app/dto/value-long';
-import Swal from 'sweetalert2';
 import { InsertUserService } from 'src/app/services/main/insert-user.service';
+import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 
@@ -59,7 +59,6 @@ export class EstudianteComponent implements OnInit{
 
     this.personalDataDTO.email = this.email; 
 
-    console.log(this.personalDataDTO);
     //debugger;
 
     Swal.fire({

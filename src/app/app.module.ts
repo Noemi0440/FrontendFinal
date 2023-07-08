@@ -42,6 +42,7 @@ import { FindPeriodsService } from './services/catalog/find-periods.service';
 import { CreateOrUpdatePeriodService } from './services/main/create-or-update-period.service';
 import { InscripcionComponent } from './commons/forms/inscripcion/inscripcion.component';
 import { InscripcionFormComponent } from './commons/forms/inscripcion-form/inscripcion-form.component';
+import { FindPeriodsByIdService } from './services/catalog/find-periods-by-id.service';
 
 
 const routes: Routes = [
@@ -112,7 +113,8 @@ const routes: Routes = [
     FindByCPService,
     FindAddresByIdService,
     FindPeriodsService,
-    CreateOrUpdatePeriodService
+    CreateOrUpdatePeriodService,
+    FindPeriodsByIdService
   ],
   bootstrap: [AppComponent],
 })

@@ -34,6 +34,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
+import { AddressComponent } from './commons/forms/create-user/address/address.component';
+import { FindAddresByIdService } from './services/catalog/find-addres-by-id.service';
+import { CreatePeriodComponent } from './commons/forms/create-period/create-period.component';
+import { FormPeriodComponent } from './commons/forms/form-period/form-period.component';
+import { FindPeriodsService } from './services/catalog/find-periods.service';
+import { CreateOrUpdatePeriodService } from './services/main/create-or-update-period.service';
 
 
 const routes: Routes = [
@@ -46,7 +52,11 @@ const routes: Routes = [
   { path: 'profesor', component:ProfesorComponent},
   { path: 'padres', component: PadresComponent},
   { path: 'respaldoBD', component: BackupDBComponent},
-  { path: 'extraInfoEsdutiante', component: ExtraInfoStudentComponent}
+  { path: 'extraInfoEsdutiante', component: ExtraInfoStudentComponent},
+  { path: 'direccion', component: AddressComponent},
+  { path: 'periodo', component: CreatePeriodComponent},
+  { path: 'periodoForm', component: FormPeriodComponent}
+
 
 
 ];
@@ -66,7 +76,10 @@ const routes: Routes = [
     LoginComponent,
     HomeComponent,
     HeaderControlComponent,
-    ExtraInfoStudentComponent
+    ExtraInfoStudentComponent,
+    AddressComponent,
+    CreatePeriodComponent,
+    FormPeriodComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +104,10 @@ const routes: Routes = [
     ListStudentBySearchService,
     ListPersonalDataService,
     InsertUserService,
-    FindByCPService
+    FindByCPService,
+    FindAddresByIdService,
+    FindPeriodsService,
+    CreateOrUpdatePeriodService
   ],
   bootstrap: [AppComponent],
 })

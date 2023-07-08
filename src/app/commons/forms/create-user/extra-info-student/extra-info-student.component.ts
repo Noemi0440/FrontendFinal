@@ -1,19 +1,16 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatButtonModule } from '@angular/material/button';
 import { FindByCPService } from 'src/app/services/catalog/find-by-cp.service';
 import { ValueLong } from 'src/app/dto/value-long';
-import { ValueLabel } from 'src/app/dto/value-label';
 import { AdressDTO } from 'src/app/dto/adress-dto';
+import { RolesService } from 'src/app/services/catalog/roles.service';
+import { PersonalDataDTO } from 'src/app/dto/personal-data-dto';
+import { InsertUserService } from 'src/app/services/main/insert-user.service';
 
 
 @Component({
   selector: 'app-extra-info-student',
   templateUrl: './extra-info-student.component.html',
-  styleUrls: ['./extra-info-student.component.css'],
 })
 export class ExtraInfoStudentComponent implements OnInit{
 
@@ -29,10 +26,9 @@ export class ExtraInfoStudentComponent implements OnInit{
   id: number;
   direcciones: AdressDTO[]=[];
   ids:number[];
-
-
-
-  valueCP: ValueLong;
+  roleId:number;
+  personalDataDTO:PersonalDataDTO;
+  flag: boolean = true;
 
   firstFormGroup = this._formBuilder.group({
     name: ['', Validators.required],
@@ -52,26 +48,36 @@ export class ExtraInfoStudentComponent implements OnInit{
   
   
 
-  constructor(private _formBuilder: FormBuilder, private findByCPService: FindByCPService) {
+  constructor(private _formBuilder: FormBuilder, private findByCPService: FindByCPService, private rolesService: RolesService, private insertUserService:InsertUserService) {
     
 
    }
   ngOnInit(): void {
+    this.id=history.state.id; 
+    this.flag=history.state.flag; 
       this.municipio = '';
       this.estado = '';
+
+      this.rolesService.getRoles().subscribe((response) => {
+        response.forEach((element) => {
+          if (element.value == 4) {
+            this.roleId = element.value;
+          }
+        });
+      });
       // this.ids = new Array();
 
   }
 
   nameChange(name:String){
-    this.name = name;
+    this.name = name.toUpperCase();
   }
   lastNameChange(lastName:String){
-    this.lastName = lastName;
+    this.lastName = lastName.toUpperCase();
   }
 
   motherLastNameChange(motherLastName:String){
-    this.motherLastName = motherLastName;
+    this.motherLastName = motherLastName.toUpperCase();
   }
 
   phoneHomeChange(phoneHome:String){
@@ -96,15 +102,29 @@ export class ExtraInfoStudentComponent implements OnInit{
           this.estado=element.estado;
         });
       });
-
-      
-    
   }
 
 
   
 
   clickPrimerStep() {
+    this.personalDataDTO = new PersonalDataDTO();
+    if(this.flag){
+      this.personalDataDTO.id = 0;
+      this.flag = false;
+    }
+    
+    this.personalDataDTO.name = this.name;
+    this.personalDataDTO.lastName = this.lastName;
+    this.personalDataDTO.mothersLastName = this.motherLastName;
+    this.personalDataDTO.cellphone = this.phone;
+    this.personalDataDTO.phone = this.phoneHome;
+    this.personalDataDTO.roleId = this.roleId;
+    this.insertUserService.getPersonaData(this.personalDataDTO).subscribe((response)=>{
+      console.log(response);
+      this.personalDataDTO.id = response.id;
+    });
+
     
   }
 

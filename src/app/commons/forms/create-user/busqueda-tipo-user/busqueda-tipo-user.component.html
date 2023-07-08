@@ -54,7 +54,12 @@
         </td>
         <td>
           <div class="col-sm-11" *ngIf="value == 1">
-            <button type="button" class="btn btn-primary" [routerLink]="['/extraInfoEsdutiante']" [state]="{flag:false, id:user.id}">Adicional</button>
+            <button type="button" class="btn btn-primary" [routerLink]="['/extraInfoEsdutiante']" [state]="{id:user.id}">Padres</button>
+          </div>
+        </td>
+        <td>
+          <div class="col-sm-11" *ngIf="value == 1">
+            <button type="button" class="btn btn-primary" [routerLink]="['/direccion']" [state]="{id:user.id}">Direcciones</button>
           </div>
         </td>
         </tr>

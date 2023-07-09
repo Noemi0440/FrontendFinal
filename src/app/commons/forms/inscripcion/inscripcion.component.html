@@ -1,10 +1,13 @@
 <div class="container text-center">
-    <h1 class="mb-4 text-center mt-4">Selecciona la opción que deceas realizar </h1>
+    <h1 class="mb-4 text-center mt-4">Selecciona la opción que deseas realizar </h1>
     <div class="row">
       <div class="row col-sm-2">
         <div class="col-sm-11">
-          <input type="button" class="form-control btn btn-outline-primary" id="alta" name="alta" value="Alta" [routerLink]="['/periodoForm']" [state]="{flag:true}"/>
+          <input type="button" class="form-control btn btn-outline-primary" id="alta" name="alta" value="Alta" [routerLink]="['/inscripcionForm']" [state]="{flag:true}"/>
         </div>
       </div>
     </div>
+    <br>
+    <input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
   </div>
+

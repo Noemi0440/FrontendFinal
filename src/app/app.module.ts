@@ -43,6 +43,10 @@ import { CreateOrUpdatePeriodService } from './services/main/create-or-update-pe
 import { InscripcionComponent } from './commons/forms/inscripcion/inscripcion.component';
 import { InscripcionFormComponent } from './commons/forms/inscripcion-form/inscripcion-form.component';
 import { FindPeriodsByIdService } from './services/catalog/find-periods-by-id.service';
+import { SemesterService } from './services/catalog/semester.service';
+import { LicenciaturaService } from './services/catalog/licenciatura.service';
+import { EstatusService } from './services/catalog/estatus.service';
+import { MateriasService } from './services/catalog/materias.service';
 
 
 const routes: Routes = [
@@ -59,7 +63,8 @@ const routes: Routes = [
   { path: 'direccion', component: AddressComponent},
   { path: 'periodo', component: CreatePeriodComponent},
   { path: 'periodoForm', component: FormPeriodComponent},
-  { path: 'inscripcion', component: InscripcionComponent}
+  { path: 'inscripcion', component: InscripcionComponent},
+  { path: 'inscripcionForm', component: InscripcionFormComponent}
 
 
 
@@ -114,7 +119,11 @@ const routes: Routes = [
     FindAddresByIdService,
     FindPeriodsService,
     CreateOrUpdatePeriodService,
-    FindPeriodsByIdService
+    FindPeriodsByIdService,
+    SemesterService,
+    LicenciaturaService,
+    EstatusService,
+    MateriasService
   ],
   bootstrap: [AppComponent],
 })

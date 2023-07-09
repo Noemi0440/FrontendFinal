@@ -1,7 +1,7 @@
 <div class="container text-center">
-  <h1 class="mb-4 text-center">Selecciona la opción que deceas realizar {{title}}</h1>
+  <h1 class="mb-4 text-center">Selecciona la opción que deseas realizar {{title}}</h1>
   <h4 class="mb-4 text-center">
-    Los criterios para realizar una busqueda son los aiguientes:
+    Los criterios para realizar una búsqueda son los siguientes:
   </h4>
   <h5 class="mb-4 text-center">
     Nombre, Apellido Paterno, Apellido Materno ó Curp
@@ -68,3 +68,4 @@
   </div>
 </div>
 <app-search-data [search]="search" (listadoUsuarios)="listadoUsuarios($event)" [value]="value"></app-search-data>
+<input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">

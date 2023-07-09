@@ -1,1 +1,27 @@
-<p>inscripcion-form works!</p>
+<h1 class="mb-4 text-center">Registro de inscripción</h1>
+<select required >
+  <br>
+  <option [value]="null" disabled>Selecciona semestre</option>
+  <option *ngFor="let semestre of semestres" [value]="semestre.value">
+      {{semestre.label}}
+  </option>
+</select>
+<select required >
+  <option [value]="null" disabled>Selecciona Licenciatura</option>
+  <option *ngFor="let licenciatura of licenciaturas" [value]="licenciatura.value">
+      {{licenciatura.label}}
+  </option>
+</select>
+<select required >
+  <option [value]="null" disabled>Selecciona estatus</option>
+  <option *ngFor="let estatus of estatus" [value]="estatus.value">
+      {{estatus.label}}
+  </option>
+</select>
+<select required >
+  <option [value]="null" disabled>Selecciona Materias</option>
+  <option *ngFor="let materias of materias" [value]="materias.value">
+      {{materias.label}}
+  </option>
+</select>
+<input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">

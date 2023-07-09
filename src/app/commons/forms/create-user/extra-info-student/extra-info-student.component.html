@@ -79,6 +79,19 @@
                         </div>
                     </form>
                 </mat-step>
+                <mat-step [stepControl]="thirdFormGroup" label="Dirección">
+                    <form [formGroup]="thirdFormGroup">
+                        <mat-form-field>
+                            <mat-label>Municipio</mat-label>
+                            <input matInput formControlName="municipio" placeholder="50110"
+                                [(ngModel)]="municipio" required>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Atrás</button>
+                            <button mat-button matStepperNext>Siguiente</button>
+                        </div>
+                    </form>
+                </mat-step>
                 <mat-step>
                     <ng-template matStepLabel>Finalizar</ng-template>
                     <p>Estas terminado</p>

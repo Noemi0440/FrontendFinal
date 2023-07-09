@@ -44,6 +44,10 @@ export class ExtraInfoStudentComponent implements OnInit{
     municipio:[{ value: '', disabled: true }],
     colonia:[]
   });
+
+  thirdFormGroup = this._formBuilder.group({
+
+  });
   isLinear = true;
   
   

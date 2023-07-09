@@ -20,7 +20,7 @@ export class PdfService {
     // Or use javascript directly:
 autoTable(doc, {
   head: [encabezado],
-  body: [cuerpo]
+  body: cuerpo
 });
     if(guardar){
       const hoy = new Date();

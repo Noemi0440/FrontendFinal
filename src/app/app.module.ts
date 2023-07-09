@@ -12,7 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { BackupDBComponent } from './generateFiles/backup-db/backup-db.component';
 import { BackupDBService } from './services/recovery/backup-db.service';
 import { EstudianteComponent } from './commons/forms/create-user/estudiante/estudiante.component';
-import { PadresComponent } from './commons/forms/create-user/padres/padres.component';
 import { ProfesorComponent } from './commons/forms/create-user/profesor/profesor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BusquedaTipoUserComponent } from './commons/forms/create-user/busqueda-tipo-user/busqueda-tipo-user.component';
@@ -47,6 +46,9 @@ import { SemesterService } from './services/catalog/semester.service';
 import { LicenciaturaService } from './services/catalog/licenciatura.service';
 import { EstatusService } from './services/catalog/estatus.service';
 import { MateriasService } from './services/catalog/materias.service';
+import { ReportComponent } from './commons/report/report.component';
+import { PdfService } from './services/impresion/pdf.service';
+import { ListTopicsService } from './services/catalog/list-topics.service';
 
 
 const routes: Routes = [
@@ -57,16 +59,16 @@ const routes: Routes = [
   { path: 'busquedaUser', component: BusquedaTipoUserComponent},
   { path: 'estudiante', component:EstudianteComponent},
   { path: 'profesor', component:ProfesorComponent},
-  { path: 'padres', component: PadresComponent},
   { path: 'respaldoBD', component: BackupDBComponent},
   { path: 'extraInfoEsdutiante', component: ExtraInfoStudentComponent},
   { path: 'direccion', component: AddressComponent},
   { path: 'periodo', component: CreatePeriodComponent},
   { path: 'periodoForm', component: FormPeriodComponent},
   { path: 'inscripcion', component: InscripcionComponent},
-  { path: 'inscripcionForm', component: InscripcionFormComponent}
+  { path: 'inscripcionForm', component: InscripcionFormComponent},
+  { path: 'reportes', component: ReportComponent},
 
-
+  
 
 ];
 
@@ -78,7 +80,6 @@ const routes: Routes = [
     SectionComponent,
     BackupDBComponent,
     EstudianteComponent,
-    PadresComponent,
     ProfesorComponent,
     BusquedaTipoUserComponent,
     SearchData,
@@ -90,7 +91,8 @@ const routes: Routes = [
     CreatePeriodComponent,
     FormPeriodComponent,
     InscripcionComponent,
-    InscripcionFormComponent
+    InscripcionFormComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
@@ -123,7 +125,9 @@ const routes: Routes = [
     SemesterService,
     LicenciaturaService,
     EstatusService,
-    MateriasService
+    MateriasService,
+    PdfService,
+    ListTopicsService
   ],
   bootstrap: [AppComponent],
 })

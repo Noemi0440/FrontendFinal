@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ListTopicsService } from 'src/app/services/catalog/list-topics.service';
 import { PdfService } from 'src/app/services/impresion/pdf.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-report',
@@ -9,7 +11,7 @@ import { PdfService } from 'src/app/services/impresion/pdf.service';
 export class ReportComponent implements OnInit{
   title:String;
   response: any[];
-  constructor(private pdfService: PdfService, private listTopicsService:ListTopicsService){
+  constructor(private pdfService: PdfService, private listTopicsService:ListTopicsService, private router: Router){
     
   }
   ngOnInit(): void {
@@ -17,7 +19,17 @@ export class ReportComponent implements OnInit{
   }
 
   reportes(){
-    const dataFirst: Array<any>=[];
+    Swal.fire({
+      title: 'Deseas generar el reporte',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      denyButtonText: `No guardar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Guardado!', '', 'success')
+        const dataFirst: Array<any>=[];
     let data: Array<any>;
     const hola =["id","Nombre", "Horas"];
     this.listTopicsService.getCategories().subscribe(response=>{
@@ -38,6 +50,12 @@ export class ReportComponent implements OnInit{
       this.pdfService.imprimir(hola,dataFirst,"Listado de asignaturas",true);
 
     });
+        this.router.navigate(['/headerControl']);
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios no serán guardados', '', 'info')
+      }
+    })
+    
     
     
 

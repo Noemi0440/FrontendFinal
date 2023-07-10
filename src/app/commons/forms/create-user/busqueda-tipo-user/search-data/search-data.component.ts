@@ -32,6 +32,7 @@ export class SearchData implements OnChanges, OnInit {
   constructor(private listTeacherBySearchService: ListTeacherBySearchService, private listStudentBySearchService: ListStudentBySearchService) {}
   ngOnInit(): void {
     if (this.value == 1) {
+      
       this.listStudentBySearchService.setSearch('');
       this.listStudentBySearchService.setNoPag(0);
 

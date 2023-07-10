@@ -49,6 +49,9 @@ import { MateriasService } from './services/catalog/materias.service';
 import { ReportComponent } from './commons/report/report.component';
 import { PdfService } from './services/impresion/pdf.service';
 import { ListTopicsService } from './services/catalog/list-topics.service';
+import { InserStudentService } from './services/main/inser-student.service';
+import { CompleateComponent } from './commons/compleate/compleate.component';
+import { InsertInscriService } from './services/main/insert-inscri.service';
 
 
 const routes: Routes = [
@@ -67,8 +70,7 @@ const routes: Routes = [
   { path: 'inscripcion', component: InscripcionComponent},
   { path: 'inscripcionForm', component: InscripcionFormComponent},
   { path: 'reportes', component: ReportComponent},
-
-  
+  { path: 'final', component: CompleateComponent},  
 
 ];
 
@@ -92,7 +94,8 @@ const routes: Routes = [
     FormPeriodComponent,
     InscripcionComponent,
     InscripcionFormComponent,
-    ReportComponent
+    ReportComponent,
+    CompleateComponent
   ],
   imports: [
     BrowserModule,
@@ -127,7 +130,9 @@ const routes: Routes = [
     EstatusService,
     MateriasService,
     PdfService,
-    ListTopicsService
+    ListTopicsService,
+    InserStudentService,
+    InsertInscriService
   ],
   bootstrap: [AppComponent],
 })

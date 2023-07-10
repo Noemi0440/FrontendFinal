@@ -5,15 +5,15 @@
       <form>
         <div class="row g-2">
           <div class="col-md-6">
-            <select required >
+            <select required (change)="onchane($event)">
               <option [value]="null" disabled>Selecciona semestre</option>
-              <option *ngFor="let semestre of semestres" [value]="semestre.value">
+              <option *ngFor="let semestre of semestres" [value]="semestre.value" >
                   {{semestre.label}}
               </option>
             </select>
           </div>
           <div class="col-md-6">
-            <select required >
+            <select required (change)="onchane1($event)">
               <option [value]="null" disabled>Selecciona Licenciatura</option>
               <option *ngFor="let licenciatura of licenciaturas" [value]="licenciatura.value">
                   {{licenciatura.label}}
@@ -21,7 +21,7 @@
             </select>
           </div>
           <div class="col-md-6">
-            <select required >
+            <select required (change)="onchane2($event)">
               <option [value]="null" disabled>Selecciona estatus</option>
               <option *ngFor="let estatus of estatus" [value]="estatus.value">
                   {{estatus.label}}

@@ -1,11 +1,29 @@
 <div class="container text-center">
     <h1 class="mb-4 text-center mt-4">Selecciona la opción que deseas realizar </h1>
-    <div class="row">
-      <div class="row col-sm-2">
-        <div class="col-sm-11">
-          <input type="button" class="form-control btn btn-outline-primary" id="alta" name="alta" value="Alta" [routerLink]="['/inscripcionForm']" [state]="{flag:true}"/>
-        </div>
-      </div>
+  </div>
+  <div class="container text-center mt-2">
+    <div class="row justify-content-center">
+      <h6>Listado de Períodos</h6>
+      <table class="border">
+        <thead>
+          <tr>
+            <th>Id:</th>
+            <th>Nombre:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let valueLong of estudiantes">
+            <td>{{valueLong.value}}</td>
+            <td>{{valueLong.label}}</td>
+            <td>
+              <div class="col-sm-11 pb-2">
+                <button type="button" class="btn btn-success" [routerLink]="['/inscripcionForm']"
+                  [state]="{id:valueLong.value}">Alta</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="row justify-content-center">

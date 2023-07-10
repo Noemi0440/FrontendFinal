@@ -7,6 +7,7 @@ import { ValueLong } from 'src/app/dto/value-long';
 import { InsertUserService } from 'src/app/services/main/insert-user.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { InserStudentService } from 'src/app/services/main/inser-student.service';
 
 
 
@@ -31,7 +32,7 @@ export class EstudianteComponent implements OnInit{
   valueLong:ValueLong;
 
 
-  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService, private insertUserService:InsertUserService, private router: Router) {
+  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService, private insertUserService:InsertUserService, private inserStudentService: InserStudentService,private router: Router) {
   }
 
 
@@ -62,7 +63,7 @@ export class EstudianteComponent implements OnInit{
     //debugger;
 
     Swal.fire({
-      title: 'Deseas guardar los datos del usuario',
+      title: 'Deseas guardar los datos del estudiante',
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: 'Guardar',
@@ -72,7 +73,12 @@ export class EstudianteComponent implements OnInit{
       if (result.isConfirmed) {
         Swal.fire('Guardado!', '', 'success')
         this.insertUserService.getPersonaData(this.personalDataDTO).subscribe((response)=>{
-          console.log(response);
+          console.log(response.id);
+          this.valueLong = new ValueLong();
+          this.valueLong.value = response.id;
+          this.inserStudentService.getPersonaDataStudent(this.valueLong).subscribe((response)=>{
+            console.log(response);
+          });
         });
         this.router.navigate(['/busquedaUser'],{ state: { id: '1' } });
       } else if (result.isDenied) {

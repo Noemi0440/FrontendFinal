@@ -4,6 +4,9 @@ import { RolesService } from 'src/app/services/catalog/roles.service';
 import * as intlTelInput from 'intl-tel-input';
 import { ValueLong } from 'src/app/dto/value-long';
 import { ListPersonalDataService } from 'src/app/services/catalog/list-personal-data.service';
+import Swal from 'sweetalert2';
+import { InsertUserService } from 'src/app/services/main/insert-user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profesor',
@@ -26,7 +29,7 @@ export class ProfesorComponent implements OnInit{
   valueLong:ValueLong;
 
 
-  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService) {
+  constructor(private rolesService: RolesService, private listPersonalDataService : ListPersonalDataService, private insertUserService:InsertUserService, private router: Router) {
   }
 
 
@@ -52,7 +55,28 @@ export class ProfesorComponent implements OnInit{
 
     this.personalDataDTO.roleId = this.roleId;
 
-    console.log(this.personalDataDTO);
+    this.personalDataDTO.email = this.email; 
+
+    //debugger;
+
+    Swal.fire({
+      title: 'Deseas guardar los datos del usuario',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      denyButtonText: `No guardar`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Guardado!', '', 'success')
+        this.insertUserService.getPersonaData(this.personalDataDTO).subscribe((response)=>{
+          console.log(response);
+        });
+        this.router.navigate(['/busquedaUser'],{ state: { id: '2' } });
+      } else if (result.isDenied) {
+        Swal.fire('Los cambios no serán guardados', '', 'info')
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -67,6 +91,7 @@ export class ProfesorComponent implements OnInit{
 
 
       this.listPersonalDataService.getPersonalData(this.valueLong).subscribe((response) => {
+        
         this.name = response.name;
         this.birthday = response.birthday;
         this.lastName = response.lastName;
@@ -75,6 +100,7 @@ export class ProfesorComponent implements OnInit{
         this.phoneHome = response.phone;
         this.email = response.email;
         this.curp = response.curp;
+
       });
     }
 

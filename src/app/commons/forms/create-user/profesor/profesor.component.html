@@ -6,22 +6,22 @@
         <div class="row g-2">
           <div class="col-md-6">
             <label for="name" class="form-label">Nombre:</label>
-            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name"/>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" toUppercase/>
           </div>
           <div class="col-md-6">
             <label for="last-name" class="form-label">Apellido paterno:</label>
-            <input type="text" class="form-control" id="last-name" name="last-name" [(ngModel)]="lastName"/>
+            <input type="text" class="form-control" id="last-name" name="last-name" [(ngModel)]="lastName" toUppercase/>
           </div>
           <div class="col-md-6">
             <label for="mother-last-name" class="form-label">Apellido materno:</label>
-            <input type="text" class="form-control" id="mother-last-name" name="mother-last-name" [(ngModel)]="motherLastName"/>
+            <input type="text" class="form-control" id="mother-last-name" name="mother-last-name" [(ngModel)]="motherLastName" toUppercase/>
           </div>
           <div class="col-md-6">
-            <label for="phone" class="form-label">Telefono celular:</label>
+            <label for="phone" class="form-label">Teléfono celular:</label>
             <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone"/>
           </div>
           <div class="col-12">
-            <label for="email" class="form-label">Correo:</label>
+            <label for="email" class="form-label">Correo electrónico:</label>
             <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email"/>
           </div>
           <div class="col-12">
@@ -34,17 +34,17 @@
           </div>
         </div>
 <div class="col-12">
-  <label for="curp" class="form-label">CURP:</label>
-  <input type="text" class="form-control" id="curp" name="curp" [(ngModel)]="curp">
+  <label for="curp" class="form-label">Curp:</label>
+  <input type="text" class="form-control" id="curp" name="curp" [(ngModel)]="curp" toUppercase/>
 </div>
 <div class="col-12">
   <label for="birthday" class="form-label">Fecha de nacimiento:</label>
-  <input class="form-control" type="date" id="birthday" name="birthday" min="1960-01-01" [max]="minDate"  [value]="minDate">
+  <input class="form-control" type="date" id="birthday" name="birthday" min="1960-01-01" [max]="minDate" [(ngModel)]="birthday"/>
 </div>
 <div class="col-12 mt-2">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <button type="submit" class="btn btn-dark w-100 fw-bold">Enviar</button>
+      <button type="button" class="btn btn-dark w-100 fw-bold" (click)="createUser()">Enviar</button>
     </div>
   </div>
 </div>

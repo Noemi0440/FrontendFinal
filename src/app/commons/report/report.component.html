@@ -1,10 +1,15 @@
-<div class="container text-center">
-    <h1 class="mb-4 text-center">Selecciona la opción que deseas realizar {{title}}</h1>
-    <div class="row">
-      <div class="row col-sm-2">
-        <div class="col-sm-11">
-          <input type="button" class="form-control btn btn-outline-primary" id="reporte" name="reporte" value="Reporte" (click)="reportes()"/>
-        </div>
-      </div>
-    </div>
+<div class="row justify-content-center">
+  <div class="container text-center mt-2">
+    <h1 class="mb-4 text-center">Generacion de respaldo de base de datos</h1>
+  <input type="button" class="mt-4 btn btn-success" id="reporte" name="reporte" value="Reporte" (click)="reportes()"/>
   </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="container text-center mt-2">
+    <input type="button" class="mt-4 btn btn-warning" [routerLink]="['/headerControl']" name="volver atrás"
+      value="volver atrás">
+  </div>
+</div>
+
+

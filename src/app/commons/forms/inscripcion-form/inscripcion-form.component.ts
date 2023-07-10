@@ -17,20 +17,25 @@ export class InscripcionFormComponent implements OnInit {
   estatus: ValueLabel[];
   materias: ValueLabel[];
 
-  constructor(private semesterService: SemesterService, private licenciaturaService: LicenciaturaService, private estatusService: EstatusService, private materiasService: MateriasService){
+  constructor(private semesterService: SemesterService, private licenciaturaService: LicenciaturaService, private estatusService: EstatusService, private materiasService: MateriasService) {
 
   }
   ngOnInit(): void {
-  this.semesterService.getPeriods().subscribe(response=>{
-    this.semestres=response;
-  });
-  this.licenciaturaService.getLicenciaturas().subscribe(response=>{
-    this.licenciaturas=response;
-  });
-  this.estatusService.getEstatus().subscribe(response=>{
-    this.estatus=response;
-  });
- this.materiasService.getMaterias().subscribe(response=>{
-  this.materias=response;
- });
-   } }
+    this.semesterService.getPeriods().subscribe(response => {
+      this.semestres = response;
+    });
+    this.licenciaturaService.getLicenciaturas().subscribe(response => {
+      this.licenciaturas = response;
+    });
+    this.estatusService.getEstatus().subscribe(response => {
+      this.estatus = response;
+    });
+    this.materiasService.getMaterias().subscribe(response => {
+      this.materias = response;
+    });
+  }
+
+  createInscription(){
+    
+  }
+}

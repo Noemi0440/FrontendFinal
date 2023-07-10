@@ -1,27 +1,52 @@
-<h1 class="mb-4 text-center">Registro de inscripción</h1>
-<select required >
-  <br>
-  <option [value]="null" disabled>Selecciona semestre</option>
-  <option *ngFor="let semestre of semestres" [value]="semestre.value">
-      {{semestre.label}}
-  </option>
-</select>
-<select required >
-  <option [value]="null" disabled>Selecciona Licenciatura</option>
-  <option *ngFor="let licenciatura of licenciaturas" [value]="licenciatura.value">
-      {{licenciatura.label}}
-  </option>
-</select>
-<select required >
-  <option [value]="null" disabled>Selecciona estatus</option>
-  <option *ngFor="let estatus of estatus" [value]="estatus.value">
-      {{estatus.label}}
-  </option>
-</select>
-<select required >
-  <option [value]="null" disabled>Selecciona Materias</option>
-  <option *ngFor="let materias of materias" [value]="materias.value">
-      {{materias.label}}
-  </option>
-</select>
-<input type="button" onclick="history.back()" name="volver atrás" value="volver atrás">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-5">
+      <h1 class="mb-4 text-center">Sistema de inscripciones</h1>
+      <form>
+        <div class="row g-2">
+          <div class="col-md-6">
+            <select required >
+              <option [value]="null" disabled>Selecciona semestre</option>
+              <option *ngFor="let semestre of semestres" [value]="semestre.value">
+                  {{semestre.label}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select required >
+              <option [value]="null" disabled>Selecciona Licenciatura</option>
+              <option *ngFor="let licenciatura of licenciaturas" [value]="licenciatura.value">
+                  {{licenciatura.label}}
+              </option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <select required >
+              <option [value]="null" disabled>Selecciona estatus</option>
+              <option *ngFor="let estatus of estatus" [value]="estatus.value">
+                  {{estatus.label}}
+              </option>
+            </select>
+          </div>
+          <!-- <div class="col-md-6">
+            <label for="phone" class="form-label">Teléfono celular:</label>
+            <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="phone"/>
+          </div> -->
+        </div>
+<div class="col-12 mt-2">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-dark w-100 fw-bold" (click)="createInscription()">Enviar</button>
+    </div>
+  </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="row justify-content-center">
+  <div class="container text-center mt-2">
+    <input type="button" class="mt-4 btn btn-warning" [routerLink]="['/busquedaUser']" [state]="{id:1}" name="volver atrás"
+      value="volver atrás">
+  </div>
+</div>
